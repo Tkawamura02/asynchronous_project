@@ -1,1 +1,43 @@
+#title {
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 20px;
+    font-family: 'Courier New', monospace;
+}
 
+div {
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+button, #userinput {
+    font-size: 20px;
+    border-radius: 7px;
+    border-color: darkslategray;
+    color: black;
+    background-color: lightgray;
+    font-family: 'Courier New', monospace;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+    opacity: 1;
+    cursor: pointer;
+}
+
+body {
+    background-color: darkslategray;
+}
+
+#output {
+    font-size: 20px;
+    border-radius: 7px;
+    border-color: darkslategray;
+    background-color: rgb(157, 170, 183);
+    color: black;
+    font-family: 'Courier New', monospace;
+    cursor: auto;
+    user-select: none;
+}

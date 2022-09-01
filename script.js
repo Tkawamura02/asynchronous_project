@@ -1,9 +1,21 @@
-function sortlist() {
+function tCall() {
+  console.log("Please wait while we process this request...") //TODO edit to html output
+}
+
+//when you call this function, you need to pass in tCall
+function sortlist(call) {
+  setTimeout(() => {
+
   var input = document.getElementById('userinput').value;
   var splitinput = input.split(',');
   var str = splitinput.push();
 	splitinput.sort();
   appendlist(splitinput);
+
+}, 3000);
+
+call()
+
 }
 
 function appendlist(splitinput) {
@@ -11,7 +23,7 @@ function appendlist(splitinput) {
 }
 
 function printMessage() {
-  console.log("Please wait while we sort this out...")
+  console.log("Please wait while we sort this out...") //TODO edit to html output
 }
 
 function orderInput(theArray, call) {

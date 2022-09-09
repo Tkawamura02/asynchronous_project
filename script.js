@@ -1,66 +1,58 @@
-function tCall() {
-  console.log("Please wait while we process this request...") //TODO edit to html output
-}
-
-//when you call this function, you need to pass in tCall
-function sortlist(call) {
-  setTimeout(() => {
-
+function sortlist() { //you need to recieve a function as an argument
   var input = document.getElementById('userinput').value;
   var splitinput = input.split(',');
   var str = splitinput.push();
 	splitinput.sort();
-  appendlist(splitinput);
-
-}, 3000);
-
-call()
-
-}
+  appendlist(splitinput); //then call the function using the arg
+} 
 
 function appendlist(splitinput) {
     document.getElementById('output').innerHTML = splitinput;
 }
 
-function printMessage() {
-  console.log("Please wait while we sort this out...") //TODO edit to html output
+function printMessage() { //Cole
+  document.getElementById('output2').innerHTML = "Please wait while we sort this out...";
 }
 
-function orderInput(theArray, call) {
+function orderInput(theArray, call) { //Cole
   setTimeout(() => {
 
       let newArray = []
-      let savedIndex = 0
-      let x = theArray.length
       
       for (let k = 0; k < theArray.length; k++) {
           theArray[k] = theArray[k].toUpperCase();
       }
       
-     
-      for (let i = 0; i < x -1; i++) { 
-          for (let j = 0; j < theArray.length; j++) {
-              if (theArray[j] <= theArray[i]) {
-                if(theArray[j] <= theArray[savedIndex])
-                  savedIndex = j
-              }
+      while (theArray.length > 0) {
+      	let i = 0;
+        let min = "z";
+        let savedIndex = 0;
+        let size = theArray.length;
+        
+        while (i < size) { 
+        	if (theArray[i] < min) {
+          	min = theArray[i];
+            savedIndex = i;
           }
-          //assign next lowest num
-          newArray[i] = theArray[savedIndex]
-          theArray.splice(savedIndex, 1)
-          
+          i++;
+        }
+        newArray.push(min);
+        theArray.splice(savedIndex, 1)
       }
-      
-      newArray.push(theArray[0])
-      
-      console.log(newArray)
-
+      document.getElementById('output2').innerHTML = newArray.toString();
   }, 3000);
 
   call()
 
 }
 
-console.log("Starting now...")
-let myArray = ["a", "b", "e", "q", "t", "t"]
-orderInput(myArray, printMessage)
+function loadArray() { //Cole
+	document.getElementById('output2').innerHTML = '';
+	var input = document.getElementById('userinput').value;
+  var splitinput = input.split(',');
+  if (splitinput < 2) {
+    document.getElementById('output2').innerHTML = 'Enter more values seperated by commas';
+    return null;
+  }
+  orderInput(splitinput, printMessage)
+}

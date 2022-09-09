@@ -10,16 +10,20 @@
 <body>
     <div class="container">
         <h1 id="title">Asynchronous Practice</h1>
-        <input type="text" id="userinput" name="userinput">
-        <button type="button" id="submit" onclick="sortlist(tCall)">Click me!</button>
+        <h4>
+        Please seperate your input with a comma for both words and letters
+        </h4>
+        <input type="text" id="userinput" name="userinput" size="40">
     </div>
+    <div class="btnclass"><button type="button" id="submit" onclick="sortlist()" style="width:400px">Click me to sort words!</button></div>
+    <div class="btnclass"><button type="button" id="submit" onclick="loadArray()" style="width:400px">Click me to sort letters!</button></div>
     <div class="container">
         <h5>
         This box will display the correct order for word organizing.
         </h5>
         <textarea readonly name="output" id="output" cols="60" rows="10"></textarea>
         <h5>
-        This box will display the correct order for number organizing.
+        This box will display the correct order for letter organizing.
         </h5>
         <textarea readonly name="output2" id="output2" cols="60" rows="10"></textarea>
     </div>

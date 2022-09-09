@@ -11,6 +11,9 @@ function sortlist(splitinput, call) { //tiffany
   function appendlist() { //tiffany
           var input = document.getElementById('userinput').value;
       var splitinput = input.split(',');
+      for(let i = 0; i<splitinput.length; i++) {
+        splitinput[i] = splitinput[i].toString().trim();
+      }
       var str = splitinput.push();
       sortlist(splitinput, tkmessage);
   }
@@ -61,6 +64,13 @@ function sortlist(splitinput, call) { //tiffany
       document.getElementById('output2').innerHTML = '';
       var input = document.getElementById('userinput').value;
     var splitinput = input.split(',');
+    
+    console.log(splitinput);
+    for(let i = 0; i<splitinput.length; i++) {
+      splitinput[i] = splitinput[i].toString().trim();
+    }
+    console.log("after " + splitinput);
+
     if (splitinput < 2) {
       document.getElementById('output2').innerHTML = 'Enter more values seperated by commas';
       return null;

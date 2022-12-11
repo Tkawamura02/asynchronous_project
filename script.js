@@ -1,19 +1,23 @@
 function sortlist(splitinput, call) { //tiffany
+    document.getElementById('output').innerHTML = '';
+    var input = document.getElementById('userinput').value;
+  if (input == '') {  
+    document.getElementById('output').innerHTML = "Please insert some words for sorting!";
+  } else {
     setTimeout(()=> {
       splitinput.sort();
       document.getElementById('output').innerHTML = splitinput;
       //then call the function using the arg
-    }, 3000);
+    }, 1500);
     
     call()
+  }
   } 
   
   function appendlist() { //tiffany
-          var input = document.getElementById('userinput').value;
+      var input = document.getElementById('userinput').value;
+      input = input.toLowerCase().split(' ').join('');
       var splitinput = input.split(',');
-      for(let i = 0; i<splitinput.length; i++) {
-        splitinput[i] = splitinput[i].toString().trim();
-      }
       var str = splitinput.push();
       sortlist(splitinput, tkmessage);
   }
@@ -34,7 +38,7 @@ function sortlist(splitinput, call) { //tiffany
         let newArray = []
         
         for (let k = 0; k < theArray.length; k++) {
-            theArray[k] = theArray[k].toUpperCase();
+            theArray[k] = theArray[k];
         }
         
         while (theArray.length > 0) {
@@ -63,14 +67,8 @@ function sortlist(splitinput, call) { //tiffany
   function loadArray() { //Cole
       document.getElementById('output2').innerHTML = '';
       var input = document.getElementById('userinput').value;
+      input = input.toLowerCase().split(' ').join('');
     var splitinput = input.split(',');
-    
-    console.log(splitinput);
-    for(let i = 0; i<splitinput.length; i++) {
-      splitinput[i] = splitinput[i].toString().trim();
-    }
-    console.log("after " + splitinput);
-
     if (splitinput < 2) {
       document.getElementById('output2').innerHTML = 'Enter more values seperated by commas';
       return null;
